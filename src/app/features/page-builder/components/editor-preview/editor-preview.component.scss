@@ -1,0 +1,74 @@
+.preview-panel-container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 12px;
+}
+
+.phone {
+  border: 1px solid #4e4e4e;
+
+  width: 300px;
+  height: 540px;
+  border-radius: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.screen {
+  border: 1px solid #4e4e4e;
+
+  width: 280px;
+  height: 420px;
+  border-radius: 10px;
+}
+
+.button {
+  border: 1px solid #4e4e4e;
+
+  position: absolute;
+  bottom: 12px;
+  width: 35px;
+  height: 35px;
+  border-radius: 999px;
+}
+
+.camera {
+  border: 1px solid #4e4e4e;
+
+  position: absolute;
+  top: 12px;
+  width: 8px;
+  height: 8px;
+  background: #4e4e4e;
+  border-radius: 999px;
+}
+
+.top-assets {
+  position: absolute;
+  top: 32px;
+  display: flex;
+  gap: 6px;
+
+  .sensor {
+    border: 1px solid #4e4e4e;
+
+    width: 4px;
+    height: 4px;
+    background: #4e4e4e;
+    border-radius: 999px;
+  }
+
+  .audio {
+    border: 1px solid #4e4e4e;
+
+    width: 56px;
+    height: 4px;
+    background: #4e4e4e;
+    border-radius: 999px;
+  }
+}

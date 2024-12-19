@@ -15,6 +15,7 @@
   max-height: 100%;
 
   .photo {
+    display: block;
     margin: auto;
     height: 48px;
     width: 48px;
@@ -49,8 +50,26 @@
       border-radius: 4px;
 
       text-align: center;
+      font-size: 0.85rem;
+      text-decoration: none;
+      color: #4e4e4e;
+
       background-color: moccasin;
-      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      box-shadow:
+        rgba(0, 0, 0, 0.1) 0px 1px 3px 0px,
+        rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+
+      transition-property: all;
+      transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+      transition-duration: 150ms;
+
+      &:hover {
+        transform: scale(1.01);
+
+        box-shadow:
+          rgba(0, 0, 0, 0.1) 0px 3px 8px 0px,
+          rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+      }
     }
   }
 }

@@ -15,9 +15,15 @@ import { PageFormComponent } from '../page-form/page-form.component';
 })
 export class EditorComponent {
   readonly form: FormGroup<PageForm> = new FormGroup({
-    pictureUrl: new FormControl(''),
-    title: new FormControl(''),
-    subtitle: new FormControl(''),
-    buttons: new FormArray([new FormControl()]),
+    pictureUrl: new FormControl('https://avatar.iran.liara.run/public/43'),
+    title: new FormControl('Your name goes here'),
+    subtitle: new FormControl("Why don't you write your role here?"),
+    buttons: new FormArray([
+      new FormControl({
+        text: 'Anything you want!',
+        url: 'https://avatar.iran.liara.run/public/43',
+        color: '',
+      }),
+    ]),
   });
 }

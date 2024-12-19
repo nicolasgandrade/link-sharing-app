@@ -8,22 +8,17 @@
 
     <div class="screen">
       <div class="preview-screen">
-        <div class="photo"></div>
-        {{ pageData | json }}
+        <img class="photo" [src]="pageData?.pictureUrl" />
+        <div class="title">{{ pageData?.title }}</div>
 
-        <div class="title">Nicolas Guerrero</div>
-
-        <div class="subtitle">Web Developer</div>
+        <div class="subtitle">{{ pageData?.subtitle }}</div>
 
         <div class="links-container">
-          <div class="link-button">My website</div>
-          <div class="link-button">My website with a very very large text</div>
-          <!-- <div class="link-button">My website</div>
-          <div class="link-button">My website</div>
-          <div class="link-button">My website</div>
-          <div class="link-button">My website</div>
-          <div class="link-button">My website</div>
-          <div class="link-button">My website</div> -->
+          @for (button of pageData?.buttons; track button?.url) {
+            <a class="link-button" target="_blank" [href]="button?.url">
+              {{ button?.text }}
+            </a>
+          }
         </div>
       </div>
     </div>

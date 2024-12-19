@@ -6,6 +6,55 @@
   padding: 24px 12px;
 }
 
+.preview-screen {
+  overflow-y: auto;
+  scroll-behavior: smooth;
+
+  padding: 24px 12px;
+  width: 100%;
+  max-height: 100%;
+
+  .photo {
+    margin: auto;
+    height: 48px;
+    width: 48px;
+    border-radius: 999px;
+    background-color: gainsboro;
+  }
+
+  .title {
+    margin-top: 12px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .subtitle {
+    margin-top: 4px;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+
+  .links-container {
+    margin-top: 16px;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    .link-button {
+      width: 220px;
+      padding: 8px 12px;
+      border-radius: 4px;
+
+      text-align: center;
+      background-color: moccasin;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 3px 0px, rgba(0, 0, 0, 0.06) 0px 1px 2px 0px;
+    }
+  }
+}
+
 .phone {
   border: 1px solid #4e4e4e;
 
@@ -25,6 +74,8 @@
   width: 280px;
   height: 420px;
   border-radius: 10px;
+  display: flex;
+  align-items: center;
 }
 
 .button {

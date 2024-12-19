@@ -2,4 +2,7 @@
   <app-page-form [form]="form" />
 </p-panel>
 
-<app-editor-preview style="display: block; height: 100%" />
+<app-editor-preview
+  style="display: block; height: 100%"
+  [pageData]="form.value"
+/>

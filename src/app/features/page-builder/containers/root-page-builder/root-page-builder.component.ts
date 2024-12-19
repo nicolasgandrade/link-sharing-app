@@ -1,9 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { FormArray, FormControl, FormGroup } from '@angular/forms';
+import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Toolbar } from 'primeng/toolbar';
 import { EditorComponent } from '../../components/editor/editor.component';
-import { PageForm } from '../../models/page-form.model';
 
 @Component({
   selector: 'app-root-page-builder',
@@ -26,15 +24,4 @@ import { PageForm } from '../../models/page-form.model';
     `,
   ],
 })
-export class RootPageBuilderComponent implements OnInit {
-  form?: FormGroup<PageForm>;
-
-  ngOnInit(): void {
-    this.form = new FormGroup({
-      pictureUrl: new FormControl(''),
-      title: new FormControl(''),
-      subtitle: new FormControl(''),
-      buttons: new FormArray([new FormControl()]),
-    });
-  }
-}
+export class RootPageBuilderComponent {}

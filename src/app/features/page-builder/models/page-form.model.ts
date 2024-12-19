@@ -7,3 +7,10 @@ export interface PageForm {
   subtitle: FormControl<string | null>;
   buttons: FormArray<FormControl<ButtonLink | null>>;
 }
+
+export interface PageData {
+  pictureUrl?: string | null;
+  title?: string | null;
+  subtitle?: string | null;
+  buttons?: (ButtonLink | null)[];
+}

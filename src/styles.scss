@@ -7,3 +7,12 @@
 body {
   font-family: 'Inter', sans-serif;
 }
+
+.form-group {
+  margin-bottom: 20px;
+
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
+}

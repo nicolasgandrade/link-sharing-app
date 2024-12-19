@@ -1,11 +1,14 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { Panel } from 'primeng/panel';
+import { PageForm } from '../../models/page-form.model';
 import { EditorPreviewComponent } from '../editor-preview/editor-preview.component';
+import { PageFormComponent } from '../page-form/page-form.component';
 
 @Component({
   selector: 'app-editor',
   standalone: true,
-  imports: [Panel, EditorPreviewComponent],
+  imports: [Panel, EditorPreviewComponent, PageFormComponent],
   templateUrl: './editor.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   styles: [
@@ -24,4 +27,6 @@ import { EditorPreviewComponent } from '../editor-preview/editor-preview.compone
     `,
   ],
 })
-export class EditorComponent {}
+export class EditorComponent {
+  @Input() form?: FormGroup<PageForm>;
+}

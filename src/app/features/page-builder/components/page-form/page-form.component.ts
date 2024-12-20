@@ -8,6 +8,18 @@ import { PageForm } from '../../models/page-form.model';
   standalone: true,
   imports: [InputText, ReactiveFormsModule],
   templateUrl: './page-form.component.html',
+  styles: [
+    `
+      .input-wrapper {
+        display: flex;
+
+        input {
+          flex-grow: 1;
+          max-width: 500px;
+        }
+      }
+    `,
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PageFormComponent {

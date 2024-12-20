@@ -17,8 +17,8 @@
   .photo {
     display: block;
     margin: auto;
-    height: 48px;
-    width: 48px;
+    height: 60px;
+    width: 60px;
     border-radius: 999px;
     background-color: gainsboro;
   }
@@ -36,13 +36,13 @@
   }
 
   .links-container {
-    margin-top: 16px;
+    margin-top: 24px;
     width: 100%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
 
     .link-button {
       width: 220px;
@@ -52,7 +52,7 @@
       text-align: center;
       font-size: 0.85rem;
       text-decoration: none;
-      color: #4e4e4e;
+      color: var(--p-panel-color);
 
       background-color: moccasin;
       box-shadow:

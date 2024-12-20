@@ -1,18 +1,39 @@
 @if (!!form) {
   <div [formGroup]="form">
     <div class="form-group">
-      <label>Picture URL</label>
-      <input pInputText type="text" formControlName="pictureUrl" />
+      <label for="page-form--input--picture">Picture URL</label>
+      <div class="input-wrapper">
+        <input
+          pInputText
+          type="text"
+          id="page-form--input--picture"
+          formControlName="pictureUrl"
+        />
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Title</label>
-      <input pInputText type="text" formControlName="title" />
+      <label for="page-form--input--title">Title</label>
+      <div class="input-wrapper">
+        <input
+          pInputText
+          type="text"
+          id="page-form--input--title"
+          formControlName="title"
+        />
+      </div>
     </div>
 
     <div class="form-group">
-      <label>Subtitle</label>
-      <input pInputText type="text" formControlName="subtitle" />
+      <label for="page-form--input--subtitle">Subtitle</label>
+      <div class="input-wrapper">
+        <input
+          pInputText
+          type="text"
+          id="page-form--input--subtitle"
+          formControlName="subtitle"
+        />
+      </div>
     </div>
   </div>
 }

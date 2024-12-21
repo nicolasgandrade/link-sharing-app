@@ -11,6 +11,7 @@ import { Button } from 'primeng/button';
 import { Divider } from 'primeng/divider';
 import { InputText } from 'primeng/inputtext';
 import { PageForm } from '../../models/page-form.model';
+import { LinkButtonControlComponent } from '../link-button-control/link-button-control.component';
 
 @Component({
   selector: 'app-page-form',
@@ -22,6 +23,7 @@ import { PageForm } from '../../models/page-form.model';
     ReactiveFormsModule,
     Button,
     Divider,
+    LinkButtonControlComponent,
   ],
   templateUrl: './page-form.component.html',
   styles: [
@@ -42,4 +44,5 @@ export class PageFormComponent {
   @Input() form?: FormGroup<PageForm>;
 
   @Output() addLinkButton = new EventEmitter<void>();
+  @Output() removeInput = new EventEmitter<number>();
 }

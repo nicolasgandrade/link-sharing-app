@@ -47,11 +47,17 @@
       class="form-group"
       formArrayName="buttons"
     >
-      <label>Link button ({{ i + 1 }})</label>
+      <!-- <label>Link button ({{ i + 1 }})</label>
       <div class="input-wrapper">
         <input pInputText type="text" [formControlName]="i" />
         <p-button icon="pi pi-check" />
-      </div>
+      </div> -->
+      <app-link-button-control
+        [formControlName]="i"
+        [index]="i"
+        [shouldDisplayTrash]="!isFirst"
+        (removeInput)="removeInput.emit(i)"
+      />
     </div>
 
     <p-button

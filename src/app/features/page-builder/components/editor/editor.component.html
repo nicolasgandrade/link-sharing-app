@@ -1,5 +1,9 @@
 <p-panel [style]="{ height: '100%' }" header="Editor">
-  <app-page-form [form]="form" (addLinkButton)="addLinkButton()" />
+  <app-page-form
+    [form]="form"
+    (addLinkButton)="addLinkButton()"
+    (removeInput)="onRemoveInput($event)"
+  />
 </p-panel>
 
 <app-editor-preview

@@ -1,0 +1,38 @@
+@if (!!innerForm) {
+  <p-panel [formGroup]="innerForm">
+    <ng-template #header>
+      <div class="header">
+        <span class="p-panel-title">Link button ({{ index + 1 }})</span>
+        @if (shouldDisplayTrash) {
+          <p-button
+            size="small"
+            icon="pi pi-trash"
+            severity="danger"
+            (onClick)="removeInput.emit()"
+          />
+        }
+      </div>
+    </ng-template>
+
+    <div class="text-input text-input--with-color">
+      <div>
+        <label>Button label</label>
+        <div class="text-input__input-wrapper">
+          <input pInputText type="text" formControlName="label" />
+        </div>
+      </div>
+
+      <div>
+        <label>Color</label>
+        <p-colorpicker formControlName="color" />
+      </div>
+    </div>
+
+    <div class="text-input">
+      <label>Link</label>
+      <div class="text-input__input-wrapper">
+        <input pInputText type="text" formControlName="link" />
+      </div>
+    </div>
+  </p-panel>
+}

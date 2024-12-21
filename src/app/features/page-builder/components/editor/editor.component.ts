@@ -32,4 +32,8 @@ export class EditorComponent {
       new FormControl({ text: 'New button', url: '', color: '' }),
     );
   }
+
+  onRemoveInput(index: number): void {
+    this.form.controls.buttons.removeAt(index);
+  }
 }

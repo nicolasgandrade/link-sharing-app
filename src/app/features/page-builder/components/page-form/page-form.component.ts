@@ -1,12 +1,28 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { CommonModule, NgFor } from '@angular/common';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  EventEmitter,
+  Input,
+  Output,
+} from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { Button } from 'primeng/button';
+import { Divider } from 'primeng/divider';
 import { InputText } from 'primeng/inputtext';
 import { PageForm } from '../../models/page-form.model';
 
 @Component({
   selector: 'app-page-form',
   standalone: true,
-  imports: [InputText, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    NgFor,
+    InputText,
+    ReactiveFormsModule,
+    Button,
+    Divider,
+  ],
   templateUrl: './page-form.component.html',
   styles: [
     `
@@ -24,4 +40,6 @@ import { PageForm } from '../../models/page-form.model';
 })
 export class PageFormComponent {
   @Input() form?: FormGroup<PageForm>;
+
+  @Output() addLinkButton = new EventEmitter<void>();
 }

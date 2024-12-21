@@ -1,5 +1,5 @@
 <p-panel [style]="{ height: '100%' }" header="Editor">
-  <app-page-form [form]="form" />
+  <app-page-form [form]="form" (addLinkButton)="addLinkButton()" />
 </p-panel>
 
 <app-editor-preview

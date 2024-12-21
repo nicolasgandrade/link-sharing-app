@@ -24,11 +24,12 @@ export class EditorComponent {
         url: 'https://avatar.iran.liara.run/public/43',
         color: '',
       }),
-      new FormControl({
-        text: 'Anything you want!',
-        url: 'https://avatar.iran.liara.run/public/43',
-        color: '',
-      }),
     ]),
   });
+
+  addLinkButton(): void {
+    this.form.controls.buttons.push(
+      new FormControl({ text: 'New button', url: '', color: '' }),
+    );
+  }
 }

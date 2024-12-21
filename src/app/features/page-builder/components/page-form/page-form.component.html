@@ -35,5 +35,31 @@
         />
       </div>
     </div>
+
+    <p-divider />
+
+    <div
+      *ngFor="
+        let button of form.controls?.buttons?.controls;
+        index as i;
+        first as isFirst
+      "
+      class="form-group"
+      formArrayName="buttons"
+    >
+      <label>Link button ({{ i + 1 }})</label>
+      <div class="input-wrapper">
+        <input pInputText type="text" [formControlName]="i" />
+        <p-button icon="pi pi-check" />
+      </div>
+    </div>
+
+    <p-button
+      outlined
+      label="Add button"
+      icon="pi pi-plus"
+      severity="contrast"
+      (onClick)="addLinkButton.emit()"
+    />
   </div>
 }

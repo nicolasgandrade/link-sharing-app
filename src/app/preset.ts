@@ -47,4 +47,13 @@ export const Noir = definePreset(Aura, {
       },
     },
   },
+  components: {
+    colorpicker: {
+      css: () => `
+        .p-colorpicker-preview {
+          border: 1px solid var(--p-inputtext-border-color);
+        }
+      `,
+    },
+  },
 });

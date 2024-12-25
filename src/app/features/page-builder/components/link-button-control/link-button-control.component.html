@@ -14,17 +14,10 @@
       </div>
     </ng-template>
 
-    <div class="text-input text-input--with-color">
-      <div>
-        <label>Button label</label>
-        <div class="text-input__input-wrapper">
-          <input pInputText type="text" formControlName="label" />
-        </div>
-      </div>
-
-      <div>
-        <label>Color</label>
-        <p-colorpicker formControlName="color" />
+    <div class="text-input">
+      <label>Button label</label>
+      <div class="text-input__input-wrapper">
+        <input pInputText type="text" formControlName="label" />
       </div>
     </div>
 
@@ -32,6 +25,18 @@
       <label>Link</label>
       <div class="text-input__input-wrapper">
         <input pInputText type="text" formControlName="link" />
+      </div>
+    </div>
+
+    <div class="text-input--multiple">
+      <div>
+        <label>Text color</label>
+        <p-colorpicker formControlName="textColor" />
+      </div>
+
+      <div>
+        <label>Background color</label>
+        <p-colorpicker formControlName="bgColor" />
       </div>
     </div>
   </p-panel>

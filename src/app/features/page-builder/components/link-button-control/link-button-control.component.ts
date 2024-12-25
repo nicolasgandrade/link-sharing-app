@@ -20,7 +20,7 @@ import { ColorPicker } from 'primeng/colorpicker';
 import { InputText } from 'primeng/inputtext';
 import { Panel } from 'primeng/panel';
 import { Subject, takeUntil } from 'rxjs';
-import { ButtonLink } from '../../models/button-link.model';
+import { LinkButton } from '../../models/link-button.model';
 
 @Component({
   selector: 'app-link-button-control',
@@ -48,11 +48,11 @@ export class LinkButtonControlComponent
   readonly innerForm = new FormGroup({
     label: new FormControl(''),
     link: new FormControl(''),
-    color: new FormControl('#333'),
+    bgColor: new FormControl('#000'),
+    textColor: new FormControl('#ffffff'),
   });
 
-  private value: Partial<ButtonLink> = {};
-  private onChange!: (value: ButtonLink) => void;
+  private onChange!: (value: LinkButton) => void;
   private onTouched!: () => void;
 
   private onDestroy$ = new Subject<void>();
@@ -64,7 +64,8 @@ export class LinkButtonControlComponent
         this.onChange({
           text: val.label || '',
           url: val.link || '',
-          color: val.color || '',
+          bgColor: val.bgColor || '#000',
+          textColor: val.textColor || '#ffffff',
         }),
       );
   }
@@ -73,19 +74,19 @@ export class LinkButtonControlComponent
     this.onDestroy$.next();
   }
 
-  writeValue(value: ButtonLink): void {
-    this.value = value;
+  writeValue(value: LinkButton): void {
     this.innerForm.setValue(
       {
         label: value.text,
         link: value.url,
-        color: value.color || '#333',
+        bgColor: value.bgColor || '#000',
+        textColor: value.textColor || '#ffffff',
       },
       { emitEvent: false },
     );
   }
 
-  registerOnChange(fn: (value: ButtonLink) => void): void {
+  registerOnChange(fn: (value: LinkButton) => void): void {
     this.onChange = fn;
   }
 

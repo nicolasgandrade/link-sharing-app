@@ -15,7 +15,12 @@
 
         <div class="links-container">
           @for (button of pageData?.buttons; track $index) {
-            <a class="link-button" target="_blank" [href]="button?.url">
+            <a
+              class="link-button"
+              target="_blank"
+              [href]="button?.url"
+              [style.background-color]="button?.color"
+            >
               {{ button?.text }}
             </a>
           }

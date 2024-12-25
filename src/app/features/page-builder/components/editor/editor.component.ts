@@ -22,14 +22,14 @@ export class EditorComponent {
       new FormControl({
         text: 'Anything you want!',
         url: 'https://avatar.iran.liara.run/public/43',
-        color: '',
+        color: '#fcba03',
       }),
     ]),
   });
 
   addLinkButton(): void {
     this.form.controls.buttons.push(
-      new FormControl({ text: 'New button', url: '', color: '' }),
+      new FormControl({ text: 'New button', url: '', color: '#fcba03' }),
     );
   }
 

@@ -18,6 +18,8 @@ export class EditorComponent {
     pictureUrl: new FormControl('https://avatar.iran.liara.run/public/43'),
     title: new FormControl('Your beautiful name'),
     subtitle: new FormControl('You can write your role here'),
+    backgroundColor: new FormControl('#ffffff'),
+    textColor: new FormControl('#333'),
     buttons: new FormArray([
       new FormControl({
         text: 'Anything you want!',

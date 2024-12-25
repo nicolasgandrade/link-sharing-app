@@ -36,6 +36,28 @@
       </div>
     </div>
 
+    <div class="color-inputs">
+      <div>
+        <label for="page-form--input--text-color">Text color</label>
+        <div class="input-wrapper">
+          <p-colorpicker
+            id="page-form--input--text-color"
+            formControlName="textColor"
+          />
+        </div>
+      </div>
+
+      <div>
+        <label for="page-form--input--bg-color">Background color</label>
+        <div class="input-wrapper">
+          <p-colorpicker
+            id="page-form--input--bg-color"
+            formControlName="backgroundColor"
+          />
+        </div>
+      </div>
+    </div>
+
     <p-divider />
 
     <div
@@ -47,11 +69,6 @@
       class="form-group"
       formArrayName="buttons"
     >
-      <!-- <label>Link button ({{ i + 1 }})</label>
-      <div class="input-wrapper">
-        <input pInputText type="text" [formControlName]="i" />
-        <p-button icon="pi pi-check" />
-      </div> -->
       <app-link-button-control
         [formControlName]="i"
         [index]="i"

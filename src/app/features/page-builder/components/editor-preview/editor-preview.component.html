@@ -6,7 +6,11 @@
       <div class="audio"></div>
     </div>
 
-    <div class="screen">
+    <div
+      class="screen"
+      [style.background-color]="pageData?.backgroundColor"
+      [style.color]="pageData?.textColor"
+    >
       <div class="preview-screen">
         <img class="photo" [src]="pageData?.pictureUrl" />
         <div class="title">{{ pageData?.title }}</div>

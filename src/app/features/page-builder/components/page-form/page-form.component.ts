@@ -8,6 +8,7 @@ import {
 } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 import { Button } from 'primeng/button';
+import { ColorPicker } from 'primeng/colorpicker';
 import { Divider } from 'primeng/divider';
 import { InputText } from 'primeng/inputtext';
 import { PageForm } from '../../models/page-form.model';
@@ -24,6 +25,7 @@ import { LinkButtonControlComponent } from '../link-button-control/link-button-c
     Button,
     Divider,
     LinkButtonControlComponent,
+    ColorPicker,
   ],
   templateUrl: './page-form.component.html',
   styles: [
@@ -35,6 +37,11 @@ import { LinkButtonControlComponent } from '../link-button-control/link-button-c
           flex-grow: 1;
           max-width: 500px;
         }
+      }
+
+      .color-inputs {
+        display: flex;
+        justify-content: space-between;
       }
     `,
   ],

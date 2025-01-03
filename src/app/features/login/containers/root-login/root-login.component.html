@@ -1,0 +1,25 @@
+<div class="login-wrapper">
+  <img
+    src="https://i0.wp.com/www.primefaces.org/wp-content/uploads/2016/10/primeng.png?ssl=1"
+  />
+
+  <p-panel>
+    <div class="panel-body">
+      <div class="panel-body__text-wrapper">
+        <p>Hello there,</p>
+        <p>
+          <strong>Select the button below</strong> to finish signing in / up.
+        </p>
+        <p>We'll redirect you to our auth provider.</p>
+      </div>
+
+      <p-button
+        (onClick)="
+          auth.loginWithRedirect({ appState: { target: '/page-builder' } })
+        "
+      >
+        Sign in or Sign up
+      </p-button>
+    </div>
+  </p-panel>
+</div>

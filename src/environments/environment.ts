@@ -3,9 +3,17 @@ export const environment = {
   auth0: {
     domain: 'replace',
     clientId: 'replace',
+    useRefreshTokens: true,
+    useRefreshTokensFallback: true,
+
     authorizationParams: {
       redirect_uri: window.location.origin,
+      audience: 'replace',
     },
-    useRefreshTokens: true,
+
+    httpInterceptor: {
+      allowedList: ['http://localhost:3000/*'],
+    },
   },
+  apiUrl: 'http://localhost:3000',
 };

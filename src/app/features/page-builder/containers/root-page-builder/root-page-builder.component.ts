@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { AuthService } from '@auth0/auth0-angular';
+import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
 import { EditorComponent } from '../../components/editor/editor.component';
 
 @Component({
   selector: 'app-root-page-builder',
   standalone: true,
-  imports: [RouterModule, Toolbar, EditorComponent],
+  imports: [RouterModule, Toolbar, EditorComponent, Button],
   templateUrl: './root-page-builder.component.html',
   styles: [
     `
@@ -24,4 +26,6 @@ import { EditorComponent } from '../../components/editor/editor.component';
     `,
   ],
 })
-export class RootPageBuilderComponent {}
+export class RootPageBuilderComponent {
+  protected auth = inject(AuthService);
+}

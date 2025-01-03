@@ -1,5 +1,7 @@
 <p-toolbar>
-  <ng-template #start> start </ng-template>
+  <ng-template #start>
+    <p-button label="Log out" severity="secondary" (onClick)="auth.logout()" />
+  </ng-template>
   <ng-template #center> center </ng-template>
   <ng-template #end> end </ng-template>
 </p-toolbar>

@@ -62,7 +62,7 @@ export class LinkButtonControlComponent
       .pipe(takeUntil(this.onDestroy$))
       .subscribe((val) =>
         this.onChange({
-          text: val.label || '',
+          label: val.label || '',
           url: val.link || '',
           bgColor: val.bgColor || '#000',
           textColor: val.textColor || '#ffffff',
@@ -77,7 +77,7 @@ export class LinkButtonControlComponent
   writeValue(value: LinkButton): void {
     this.innerForm.setValue(
       {
-        label: value.text,
+        label: value.label,
         link: value.url,
         bgColor: value.bgColor || '#000',
         textColor: value.textColor || '#ffffff',

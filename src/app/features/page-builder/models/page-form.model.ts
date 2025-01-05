@@ -7,15 +7,16 @@ export interface PageForm {
   title: FormControl<string | null>;
   subtitle: FormControl<string | null>;
   buttons: FormArray<FormControl<LinkButton | null>>;
-  backgroundColor: FormControl<string | null>;
+  bgColor: FormControl<string | null>;
   textColor: FormControl<string | null>;
 }
 
 export interface PageData {
+  slug?: string | null;
   pictureUrl?: string | null;
   title?: string | null;
   subtitle?: string | null;
   buttons?: (LinkButton | null)[];
-  backgroundColor?: string | null;
+  bgColor?: string | null;
   textColor?: string | null;
 }

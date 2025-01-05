@@ -1,16 +1,18 @@
 import { AsyncPipe } from '@angular/common';
-import { Component, inject } from '@angular/core';
+import { Component, inject, ViewChild } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
-import { map } from 'rxjs';
+import { map, take } from 'rxjs';
 import { EditorComponent } from '../../components/editor/editor.component';
+import { PageService } from '../../services/page.service';
 
 @Component({
   selector: 'app-root-page-builder',
   standalone: true,
   imports: [RouterModule, Toolbar, EditorComponent, Button, AsyncPipe],
+  providers: [PageService],
   templateUrl: './root-page-builder.component.html',
   styles: [
     `
@@ -29,7 +31,22 @@ import { EditorComponent } from '../../components/editor/editor.component';
   ],
 })
 export class RootPageBuilderComponent {
+  @ViewChild(EditorComponent) editor?: EditorComponent;
+
   protected auth = inject(AuthService);
+  private pageService = inject(PageService);
 
   readonly username$ = this.auth.user$.pipe(map((user) => user?.nickname));
+
+  publishPage(): void {
+    const formValue = this.editor?.form?.value;
+    if (!formValue) {
+      return;
+    }
+
+    this.pageService
+      .publishPage(formValue)
+      .pipe(take(1))
+      .subscribe((val) => console.log(val));
+  }
 }

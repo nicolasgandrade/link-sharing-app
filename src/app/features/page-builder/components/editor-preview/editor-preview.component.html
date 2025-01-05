@@ -8,7 +8,7 @@
 
     <div
       class="screen"
-      [style.background-color]="pageData?.backgroundColor"
+      [style.background-color]="pageData?.bgColor"
       [style.color]="pageData?.textColor"
     >
       <div class="preview-screen">
@@ -26,7 +26,7 @@
               [style.background-color]="button?.bgColor"
               [style.color]="button?.textColor"
             >
-              {{ button?.text }}
+              {{ button?.label }}
             </a>
           }
         </div>

@@ -1,5 +1,5 @@
 export interface LinkButton {
-  text: string;
+  label: string;
   bgColor: string;
   textColor: string;
   url: string;

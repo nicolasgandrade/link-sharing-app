@@ -19,11 +19,11 @@ export class EditorComponent {
     pictureUrl: new FormControl('https://avatar.iran.liara.run/public/43'),
     title: new FormControl('Your beautiful name'),
     subtitle: new FormControl('You can write your role here'),
-    backgroundColor: new FormControl('#ffffff'),
+    bgColor: new FormControl('#ffffff'),
     textColor: new FormControl('#333'),
     buttons: new FormArray([
       new FormControl({
-        text: 'Anything you want!',
+        label: 'Anything you want!',
         url: 'https://avatar.iran.liara.run/public/43',
         bgColor: '#000',
         textColor: '#ffffff',
@@ -34,7 +34,7 @@ export class EditorComponent {
   addLinkButton(): void {
     this.form.controls.buttons.push(
       new FormControl({
-        text: 'New button',
+        label: 'New button',
         url: '',
         bgColor: '#000',
         textColor: '#ffffff',

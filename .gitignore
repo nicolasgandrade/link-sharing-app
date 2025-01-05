@@ -43,3 +43,4 @@ Thumbs.db
 
 # Prod environment variables
 /src/environments/*.prod.ts
+/src/environments/environment.ts

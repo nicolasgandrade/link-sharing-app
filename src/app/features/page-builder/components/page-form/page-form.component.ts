@@ -35,14 +35,12 @@ import { LinkButtonControlComponent } from '../link-button-control/link-button-c
 
         input {
           flex-grow: 1;
-          max-width: 500px;
         }
       }
 
       .color-inputs {
         display: flex;
         justify-content: space-between;
-        max-width: 500px;
       }
     `,
   ],

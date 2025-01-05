@@ -2,6 +2,7 @@ import { FormArray, FormControl } from '@angular/forms';
 import { LinkButton } from './link-button.model';
 
 export interface PageForm {
+  slug: FormControl<string | null>;
   pictureUrl: FormControl<string | null>;
   title: FormControl<string | null>;
   subtitle: FormControl<string | null>;

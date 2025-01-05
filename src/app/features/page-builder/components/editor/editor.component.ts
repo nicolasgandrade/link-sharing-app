@@ -15,6 +15,7 @@ import { PageFormComponent } from '../page-form/page-form.component';
 })
 export class EditorComponent {
   readonly form: FormGroup<PageForm> = new FormGroup({
+    slug: new FormControl(''),
     pictureUrl: new FormControl('https://avatar.iran.liara.run/public/43'),
     title: new FormControl('Your beautiful name'),
     subtitle: new FormControl('You can write your role here'),

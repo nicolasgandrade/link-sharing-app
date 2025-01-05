@@ -1,15 +1,15 @@
 :host {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  margin-bottom: 24px;
+  gap: 16px;
+  margin-bottom: 16px;
 
   app-editor-preview {
     display: block;
     flex-grow: 1;
-    max-height: calc(100vh - 48px);
+    max-height: calc(100vh - 32px);
     position: sticky;
-    top: 24px;
+    top: 16px;
   }
 
   @media (min-width: 978px) {

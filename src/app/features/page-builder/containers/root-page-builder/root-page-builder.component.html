@@ -1,9 +1,19 @@
 <p-toolbar>
   <ng-template #start>
-    <p-button label="Log out" severity="secondary" (onClick)="auth.logout()" />
+    <p-button
+      label="Log out"
+      severity="danger"
+      icon="pi pi-sign-out"
+      (onClick)="auth.logout()"
+    />
   </ng-template>
-  <ng-template #center> center </ng-template>
-  <ng-template #end> end </ng-template>
+  <ng-template #center>
+    <strong>{{ (username$ | async) + "'s" }}</strong>
+    &nbsp;website
+  </ng-template>
+  <ng-template #end>
+    <p-button label="Save" icon="pi pi-check" />
+  </ng-template>
 </p-toolbar>
 
 <app-editor />

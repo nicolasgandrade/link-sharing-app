@@ -42,6 +42,7 @@ import { LinkButtonControlComponent } from '../link-button-control/link-button-c
       .color-inputs {
         display: flex;
         justify-content: space-between;
+        max-width: 500px;
       }
     `,
   ],

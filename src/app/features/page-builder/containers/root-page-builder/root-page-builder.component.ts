@@ -4,15 +4,16 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
-import { map, take } from 'rxjs';
+import { map } from 'rxjs';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { PageService } from '../../services/page.service';
+import { PageStore } from '../../state/page.store';
 
 @Component({
   selector: 'app-root-page-builder',
   standalone: true,
   imports: [RouterModule, Toolbar, EditorComponent, Button, AsyncPipe],
-  providers: [PageService],
+  providers: [PageService, PageStore],
   templateUrl: './root-page-builder.component.html',
   styles: [
     `
@@ -33,10 +34,11 @@ import { PageService } from '../../services/page.service';
 export class RootPageBuilderComponent {
   @ViewChild(EditorComponent) editor?: EditorComponent;
 
-  protected auth = inject(AuthService);
-  private pageService = inject(PageService);
+  protected readonly auth = inject(AuthService);
+  private readonly pageFacade = inject(PageStore);
 
-  readonly username$ = this.auth.user$.pipe(map((user) => user?.nickname));
+  readonly username$ = this.auth.user$.pipe(map((user) => user?.sub));
+  readonly isPosting$ = this.pageFacade.isPosting$;
 
   publishPage(): void {
     const formValue = this.editor?.form?.value;
@@ -44,9 +46,6 @@ export class RootPageBuilderComponent {
       return;
     }
 
-    this.pageService
-      .publishPage(formValue)
-      .pipe(take(1))
-      .subscribe((val) => console.log(val));
+    this.pageFacade.publishPage(formValue);
   }
 }

@@ -15,7 +15,12 @@
   </ng-template>
 
   <ng-template #end>
-    <p-button label="Publish" icon="pi pi-check" (onClick)="publishPage()" />
+    <p-button
+      label="Publish"
+      icon="pi pi-check"
+      [loading]="isPosting$ | async"
+      (onClick)="publishPage()"
+    />
   </ng-template>
 </p-toolbar>
 

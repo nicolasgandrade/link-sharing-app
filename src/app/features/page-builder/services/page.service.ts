@@ -11,4 +11,8 @@ export class PageService {
   publishPage(pageData: PageData): Observable<PageData> {
     return this.http.post<PageData>(`${environment.apiUrl}/pages`, pageData);
   }
+
+  getUserPage() {
+    return this.http.get<PageData>(`${environment.apiUrl}/pages/mine`);
+  }
 }

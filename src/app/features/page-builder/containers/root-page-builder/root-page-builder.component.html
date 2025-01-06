@@ -1,27 +1,31 @@
-<p-toolbar>
-  <ng-template #start>
-    <p-button
-      outlined
-      label="Log out"
-      severity="danger"
-      icon="pi pi-sign-out"
-      (onClick)="auth.logout()"
-    />
-  </ng-template>
+@if (isFetchingPage$ | async) {
+  Loading...
+} @else {
+  <p-toolbar>
+    <ng-template #start>
+      <p-button
+        outlined
+        label="Log out"
+        severity="danger"
+        icon="pi pi-sign-out"
+        (onClick)="auth.logout()"
+      />
+    </ng-template>
 
-  <ng-template #center>
-    <strong>{{ (username$ | async) + "'s" }}</strong>
-    &nbsp;website
-  </ng-template>
+    <ng-template #center>
+      <strong>{{ (username$ | async) + "'s" }}</strong>
+      &nbsp;website
+    </ng-template>
 
-  <ng-template #end>
-    <p-button
-      label="Publish"
-      icon="pi pi-check"
-      [loading]="isPosting$ | async"
-      (onClick)="publishPage()"
-    />
-  </ng-template>
-</p-toolbar>
+    <ng-template #end>
+      <p-button
+        label="Publish"
+        icon="pi pi-check"
+        [loading]="isPosting$ | async"
+        (onClick)="publishPage()"
+      />
+    </ng-template>
+  </p-toolbar>
 
-<app-editor />
+  <app-editor />
+}

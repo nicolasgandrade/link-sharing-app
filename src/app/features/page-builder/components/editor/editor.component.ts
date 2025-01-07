@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { FormArray, FormControl, FormGroup } from '@angular/forms';
 import { Panel } from 'primeng/panel';
-import { PageForm } from '../../models/page-form.model';
+import { PageData, PageForm } from '../../models/page-form.model';
 import { EditorPreviewComponent } from '../editor-preview/editor-preview.component';
 import { PageFormComponent } from '../page-form/page-form.component';
 
@@ -30,6 +30,12 @@ export class EditorComponent {
       }),
     ]),
   });
+
+  @Input() set existingPage(page: PageData | null | undefined) {
+    if (!!page) {
+      this.form?.patchValue(page);
+    }
+  }
 
   addLinkButton(): void {
     this.form.controls.buttons.push(

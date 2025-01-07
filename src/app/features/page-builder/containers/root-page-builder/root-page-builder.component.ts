@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { AuthService } from '@auth0/auth0-angular';
 import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
-import { map, ReplaySubject, takeUntil } from 'rxjs';
+import { distinctUntilChanged, map, ReplaySubject } from 'rxjs';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { PageService } from '../../services/page.service';
 import { PageStore } from '../../state/page.store';
@@ -39,14 +39,13 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
 
   readonly username$ = this.auth.user$.pipe(map((user) => user?.nickname));
   readonly isPosting$ = this.pageFacade.isPosting$;
-  readonly existingPage$ = this.pageFacade.page$;
+  readonly existingPage$ = this.pageFacade.page$.pipe(distinctUntilChanged());
   readonly isFetchingPage$ = this.pageFacade.isFetching$;
 
   private readonly onDestroy$ = new ReplaySubject<void>(1);
 
   ngOnInit(): void {
     this.pageFacade.getUserPage();
-    this.setupFormValue();
   }
 
   ngOnDestroy(): void {
@@ -60,14 +59,5 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
     }
 
     this.pageFacade.publishPage(formValue);
-  }
-
-  private setupFormValue() {
-    this.existingPage$.pipe(takeUntil(this.onDestroy$)).subscribe((value) => {
-      if (!!value) {
-        console.log(value);
-        this.editor?.form?.controls.slug.setValue('test slug set value');
-      }
-    });
   }
 }

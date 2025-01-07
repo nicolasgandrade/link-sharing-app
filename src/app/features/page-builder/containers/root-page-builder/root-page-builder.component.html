@@ -27,5 +27,5 @@
     </ng-template>
   </p-toolbar>
 
-  <app-editor />
+  <app-editor [existingPage]="existingPage$ | async" />
 }

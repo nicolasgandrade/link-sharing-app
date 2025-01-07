@@ -1,4 +1,5 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
+import { AuthService } from '@auth0/auth0-angular';
 import {
   BehaviorSubject,
   catchError,
@@ -27,7 +28,9 @@ const initialState: PageState = {
 
 @Injectable()
 export class PageStore implements OnDestroy {
+  private readonly authService = inject(AuthService);
   private readonly pageService = inject(PageService);
+
   private readonly pageRequest$ = new Subject<PageData>();
   private readonly getPage$ = new Subject<void>();
   private readonly state$ = new BehaviorSubject<PageState>(initialState);

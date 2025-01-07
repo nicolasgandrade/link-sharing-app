@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { Button } from 'primeng/button';
 import { Message } from 'primeng/message';
 
@@ -14,7 +14,7 @@ import { Message } from 'primeng/message';
       ></i>
 
       <p-message severity="error">
-        Ops! There was an error fetching your page... <br />
+        {{ message }} <br />
         Try again later or call the support if the error persists.
       </p-message>
 
@@ -39,6 +39,7 @@ import { Message } from 'primeng/message';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ErrorComponent {
+  @Input() message?: string;
   reloadPage() {
     window.location.reload();
   }

@@ -18,7 +18,7 @@
         <div class="subtitle">{{ pageData?.subtitle }}</div>
 
         <div class="links-container">
-          @for (button of pageData?.buttons; track $index) {
+          @for (button of pageData?.linkButtons; track $index) {
             <a
               class="link-button"
               target="_blank"

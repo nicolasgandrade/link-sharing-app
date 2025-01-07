@@ -16,17 +16,17 @@ import { PageFormComponent } from '../page-form/page-form.component';
 export class EditorComponent {
   readonly form: FormGroup<PageForm> = new FormGroup({
     slug: new FormControl(''),
-    pictureUrl: new FormControl('https://avatar.iran.liara.run/public/43'),
-    title: new FormControl('Your beautiful name'),
-    subtitle: new FormControl('You can write your role here'),
-    bgColor: new FormControl('#ffffff'),
-    textColor: new FormControl('#333'),
-    buttons: new FormArray([
+    pictureUrl: new FormControl(''),
+    title: new FormControl(''),
+    subtitle: new FormControl(''),
+    bgColor: new FormControl(''),
+    textColor: new FormControl(''),
+    linkButtons: new FormArray([
       new FormControl({
-        label: 'Anything you want!',
-        url: 'https://avatar.iran.liara.run/public/43',
-        bgColor: '#000',
-        textColor: '#ffffff',
+        label: '',
+        url: '',
+        bgColor: '',
+        textColor: '',
       }),
     ]),
   });
@@ -38,7 +38,7 @@ export class EditorComponent {
   }
 
   addLinkButton(): void {
-    this.form.controls.buttons.push(
+    this.form.controls.linkButtons.push(
       new FormControl({
         label: 'New button',
         url: '',
@@ -49,6 +49,6 @@ export class EditorComponent {
   }
 
   onRemoveInput(index: number): void {
-    this.form.controls.buttons.removeAt(index);
+    this.form.controls.linkButtons.removeAt(index);
   }
 }

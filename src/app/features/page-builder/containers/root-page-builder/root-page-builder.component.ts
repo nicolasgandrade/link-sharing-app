@@ -5,6 +5,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
 import { distinctUntilChanged, map, ReplaySubject } from 'rxjs';
+import { ErrorComponent } from '../../../../components/error/error.component';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { PageService } from '../../services/page.service';
 import { PageStore } from '../../state/page.store';
@@ -12,7 +13,14 @@ import { PageStore } from '../../state/page.store';
 @Component({
   selector: 'app-root-page-builder',
   standalone: true,
-  imports: [RouterModule, Toolbar, EditorComponent, Button, AsyncPipe],
+  imports: [
+    RouterModule,
+    Toolbar,
+    EditorComponent,
+    Button,
+    AsyncPipe,
+    ErrorComponent,
+  ],
   providers: [PageService, PageStore],
   templateUrl: './root-page-builder.component.html',
   styles: [
@@ -24,9 +32,8 @@ import { PageStore } from '../../state/page.store';
         grid-template-rows: auto 1fr;
         gap: 16px;
         min-height: 100vh;
-
-        @media (min-width: 500px) {
-        }
+        width: 100%;
+        max-width: 1468px;
       }
     `,
   ],
@@ -41,6 +48,7 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
   readonly isPosting$ = this.pageFacade.isPosting$;
   readonly existingPage$ = this.pageFacade.page$.pipe(distinctUntilChanged());
   readonly isFetchingPage$ = this.pageFacade.isFetching$;
+  readonly hasError$ = this.pageFacade.hasError$;
 
   private readonly onDestroy$ = new ReplaySubject<void>(1);
 

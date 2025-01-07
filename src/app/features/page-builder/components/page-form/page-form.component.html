@@ -75,12 +75,12 @@
 
     <div
       *ngFor="
-        let button of form.controls?.buttons?.controls;
+        let button of form.controls?.linkButtons?.controls;
         index as i;
         first as isFirst
       "
       class="form-group"
-      formArrayName="buttons"
+      formArrayName="linkButtons"
     >
       <app-link-button-control
         [formControlName]="i"

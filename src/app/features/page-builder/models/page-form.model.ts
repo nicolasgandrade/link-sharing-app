@@ -6,7 +6,7 @@ export interface PageForm {
   pictureUrl: FormControl<string | null>;
   title: FormControl<string | null>;
   subtitle: FormControl<string | null>;
-  buttons: FormArray<FormControl<LinkButton | null>>;
+  linkButtons: FormArray<FormControl<LinkButton | null>>;
   bgColor: FormControl<string | null>;
   textColor: FormControl<string | null>;
 }
@@ -16,7 +16,7 @@ export interface PageData {
   pictureUrl?: string | null;
   title?: string | null;
   subtitle?: string | null;
-  buttons?: (LinkButton | null)[];
+  linkButtons?: (LinkButton | null)[];
   bgColor?: string | null;
   textColor?: string | null;
 }

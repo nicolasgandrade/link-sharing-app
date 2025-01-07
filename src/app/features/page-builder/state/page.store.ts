@@ -1,5 +1,4 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
-import { AuthService } from '@auth0/auth0-angular';
 import {
   BehaviorSubject,
   catchError,
@@ -17,18 +16,19 @@ import { PageService } from '../services/page.service';
 interface PageState {
   isPosting: boolean;
   isFetching: boolean;
+  hasError: boolean;
   page?: PageData;
 }
 
 const initialState: PageState = {
   isPosting: false,
   isFetching: false,
+  hasError: false,
   page: undefined,
 };
 
 @Injectable()
 export class PageStore implements OnDestroy {
-  private readonly authService = inject(AuthService);
   private readonly pageService = inject(PageService);
 
   private readonly pageRequest$ = new Subject<PageData>();
@@ -39,6 +39,7 @@ export class PageStore implements OnDestroy {
   readonly isFetching$ = this.state$.pipe(map((state) => state.isFetching));
   readonly isPosting$ = this.state$.pipe(map((state) => state.isPosting));
   readonly page$ = this.state$.pipe(map((state) => state.page));
+  readonly hasError$ = this.state$.pipe(map((state) => state.hasError));
 
   readonly getUserPage = () => {
     this.getPage$.next();
@@ -48,13 +49,26 @@ export class PageStore implements OnDestroy {
   };
 
   private readonly fetchingPage = () => {
-    this.state$.next({ ...this.state$.getValue(), isFetching: true });
+    this.state$.next({
+      ...this.state$.getValue(),
+      isFetching: true,
+      hasError: false,
+    });
   };
   private readonly fetchPageSuccess = (page: PageData) => {
-    this.state$.next({ ...this.state$.getValue(), isFetching: false, page });
+    this.state$.next({
+      ...this.state$.getValue(),
+      isFetching: false,
+      hasError: false,
+      page,
+    });
   };
   private readonly fetchPageFailure = () => {
-    this.state$.next({ ...this.state$.getValue(), isFetching: false });
+    this.state$.next({
+      ...this.state$.getValue(),
+      isFetching: false,
+      hasError: true,
+    });
   };
 
   private readonly postPage = () => {

@@ -1,5 +1,7 @@
 @if (isFetchingPage$ | async) {
   Loading...
+} @else if (hasError$ | async) {
+  <app-error message="Ops! There was an error fetching your page..." />
 } @else {
   <p-toolbar>
     <ng-template #start>

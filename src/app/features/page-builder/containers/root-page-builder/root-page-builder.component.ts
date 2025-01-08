@@ -34,6 +34,7 @@ import { PageStore } from '../../state/page.store';
         min-height: 100vh;
         width: 100%;
         max-width: 1468px;
+        margin: 0 auto;
       }
     `,
   ],

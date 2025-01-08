@@ -23,7 +23,10 @@ export class PageService implements OnDestroy {
   }
 
   publishPage(pageData: PageData): Observable<PageData> {
-    return this.http.post<PageData>(`${environment.apiUrl}/pages`, pageData);
+    return this.http.put<PageData>(
+      `${environment.apiUrl}/users/${this.userId}/page`,
+      pageData,
+    );
   }
 
   getUserPage() {

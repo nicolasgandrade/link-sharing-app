@@ -33,6 +33,18 @@ export class EditorComponent {
 
   @Input() set existingPage(page: PageData | null | undefined) {
     if (!!page) {
+      this.form?.controls.linkButtons?.clear();
+
+      page.linkButtons?.forEach(() =>
+        this.form?.controls.linkButtons?.push(
+          new FormControl({
+            label: '',
+            url: '',
+            bgColor: '',
+            textColor: '',
+          }),
+        ),
+      );
       this.form?.patchValue(page);
     }
   }

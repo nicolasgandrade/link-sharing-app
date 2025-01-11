@@ -7,7 +7,9 @@ import { Toolbar } from 'primeng/toolbar';
 import { distinctUntilChanged, map, ReplaySubject } from 'rxjs';
 import { ErrorComponent } from '../../../../components/error/error.component';
 import { EditorComponent } from '../../components/editor/editor.component';
+import { PageData } from '../../models/page-form.model';
 import { PageService } from '../../services/page.service';
+import { SlugService } from '../../services/slug.service';
 import { PageStore } from '../../state/page.store';
 
 @Component({
@@ -21,7 +23,7 @@ import { PageStore } from '../../state/page.store';
     AsyncPipe,
     ErrorComponent,
   ],
-  providers: [PageService, PageStore],
+  providers: [PageService, PageStore, SlugService],
   templateUrl: './root-page-builder.component.html',
   styles: [
     `
@@ -40,7 +42,7 @@ import { PageStore } from '../../state/page.store';
   ],
 })
 export class RootPageBuilderComponent implements OnInit, OnDestroy {
-  @ViewChild(EditorComponent) editor?: EditorComponent;
+  @ViewChild(EditorComponent, { static: false }) editor?: EditorComponent;
 
   protected readonly auth = inject(AuthService);
   private readonly pageFacade = inject(PageStore);
@@ -61,12 +63,11 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
     this.onDestroy$.next();
   }
 
-  publishPage(): void {
-    const formValue = this.editor?.form?.value;
-    if (!formValue) {
+  onPublishPage(page: PageData): void {
+    if (!page) {
       return;
     }
 
-    this.pageFacade.publishPage(formValue);
+    this.pageFacade.publishPage(page);
   }
 }

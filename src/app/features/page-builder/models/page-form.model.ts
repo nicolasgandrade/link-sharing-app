@@ -19,4 +19,5 @@ export interface PageData {
   linkButtons?: (LinkButton | null)[];
   bgColor?: string | null;
   textColor?: string | null;
+  creatorId?: string | null;
 }

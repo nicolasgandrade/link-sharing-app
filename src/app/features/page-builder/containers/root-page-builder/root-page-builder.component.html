@@ -20,14 +20,13 @@
     </ng-template>
 
     <ng-template #end>
-      <p-button
-        label="Publish"
-        icon="pi pi-check"
-        [loading]="isPosting$ | async"
-        (onClick)="publishPage()"
-      />
+      <p-button outlined label="Preview" icon="pi pi-eye" />
     </ng-template>
   </p-toolbar>
 
-  <app-editor [existingPage]="existingPage$ | async" />
+  <app-editor
+    [existingPage]="existingPage$ | async"
+    [isPosting]="(isPosting$ | async) || false"
+    (publishPage)="onPublishPage($event)"
+  />
 }

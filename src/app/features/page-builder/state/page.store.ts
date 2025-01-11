@@ -1,4 +1,5 @@
 import { inject, Injectable, OnDestroy } from '@angular/core';
+import { MessageService } from 'primeng/api';
 import {
   BehaviorSubject,
   catchError,
@@ -30,6 +31,7 @@ const initialState: PageState = {
 @Injectable()
 export class PageStore implements OnDestroy {
   private readonly pageService = inject(PageService);
+  private readonly messageService = inject(MessageService);
 
   private readonly pageRequest$ = new Subject<PageData>();
   private readonly getPage$ = new Subject<void>();
@@ -97,8 +99,21 @@ export class PageStore implements OnDestroy {
         tap(() => this.postPage()),
         switchMap((pageData) =>
           this.pageService.publishPage(pageData).pipe(
-            tap((page) => this.postPageSuccess(page)),
+            tap((page) => {
+              this.messageService.add({
+                severity: 'success',
+                summary: 'Changes saved',
+                detail: 'Changes may take a few minutes to take effect',
+              });
+              this.postPageSuccess(page);
+            }),
             catchError(() => {
+              this.messageService.add({
+                severity: 'error',
+                summary: 'Error',
+                detail:
+                  'There was a problem publishing your page. Please, try again later.',
+              });
               this.postPageFailure();
               return EMPTY;
             }),

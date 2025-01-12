@@ -5,6 +5,7 @@ import { AuthService } from '@auth0/auth0-angular';
 import { Button } from 'primeng/button';
 import { Toolbar } from 'primeng/toolbar';
 import { distinctUntilChanged, map, ReplaySubject } from 'rxjs';
+import { environment } from '../../../../../environments/environment';
 import { ErrorComponent } from '../../../../components/error/error.component';
 import { EditorComponent } from '../../components/editor/editor.component';
 import { PageData } from '../../models/page-form.model';
@@ -69,5 +70,12 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
     }
 
     this.pageFacade.publishPage(page);
+  }
+
+  goToPage(): void {
+    window.open(
+      `${environment.pageBaseUrl}/${this.editor?.form?.controls?.slug?.value}`,
+      '_blank',
+    );
   }
 }

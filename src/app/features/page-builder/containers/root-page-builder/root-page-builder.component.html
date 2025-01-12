@@ -20,7 +20,12 @@
     </ng-template>
 
     <ng-template #end>
-      <p-button outlined label="Preview" icon="pi pi-eye" />
+      <p-button
+        outlined
+        label="Go to page"
+        icon="pi pi-eye"
+        (onClick)="goToPage()"
+      />
     </ng-template>
   </p-toolbar>
 

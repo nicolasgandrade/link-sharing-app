@@ -7,7 +7,7 @@ export const environment = {
     useRefreshTokensFallback: true,
 
     authorizationParams: {
-      redirect_uri: window.location.origin,
+      redirect_uri: 'https://nicolasgandrade.github.io/link-sharing-app',
       audience: 'https://api.streamerbridge.com',
     },
 

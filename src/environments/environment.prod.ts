@@ -16,5 +16,5 @@ export const environment = {
     },
   },
   apiUrl: 'https://enderlinks.nicolasgandrade.com/api',
-  pageBaseUrl: 'https://enderlinks.nicolasgandrade.com',
+  pageBaseUrl: 'https://nicolasgandrade.github.io/link-sharing-app',
 };

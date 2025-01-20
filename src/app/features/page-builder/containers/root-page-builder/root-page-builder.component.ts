@@ -45,7 +45,7 @@ import { PageStore } from '../../state/page.store';
 export class RootPageBuilderComponent implements OnInit, OnDestroy {
   @ViewChild(EditorComponent, { static: false }) editor?: EditorComponent;
 
-  protected readonly auth = inject(AuthService);
+  private readonly auth = inject(AuthService);
   private readonly pageFacade = inject(PageStore);
 
   readonly username$ = this.auth.user$.pipe(map((user) => user?.nickname));
@@ -77,5 +77,9 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
       `${environment.pageBaseUrl}/${this.editor?.form?.controls?.slug?.value}`,
       '_blank',
     );
+  }
+
+  logout(): void {
+    this.auth.logout({ logoutParams: { returnTo: environment.pageBaseUrl } });
   }
 }

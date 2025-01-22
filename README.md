@@ -8,6 +8,8 @@ This is the API I built for this project, it was made in NodeJS with Express: ht
 
 ## Development server
 
+Before running the client, make sure you've already setted up the server (https://github.com/nicolasgandrade/api-link-sharing) and an Auth0 project. After setting everything up, update the `environment.ts` file with your custom values, otherwise, the app won't work.
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Build

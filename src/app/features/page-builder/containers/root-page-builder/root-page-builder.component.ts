@@ -74,7 +74,7 @@ export class RootPageBuilderComponent implements OnInit, OnDestroy {
 
   goToPage(): void {
     window.open(
-      `${environment.pageBaseUrl}/${this.editor?.form?.controls?.slug?.value}`,
+      `${environment.previewBaseUrl}/${this.editor?.form?.controls?.slug?.value}`,
       '_blank',
     );
   }

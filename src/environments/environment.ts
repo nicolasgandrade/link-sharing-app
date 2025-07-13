@@ -17,4 +17,5 @@ export const environment = {
   },
   apiUrl: 'http://localhost:3000/api',
   pageBaseUrl: 'http://localhost:3000',
+  previewBaseUrl: 'http://localhost:3000',
 };
